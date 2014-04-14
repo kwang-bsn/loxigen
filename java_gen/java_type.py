@@ -418,6 +418,9 @@ oxm_list = JType("OFOxmList") \
 meter_features = JType("OFMeterFeatures")\
         .op(read="OFMeterFeaturesVer$version.READER.readFrom(bb)",
             write="$name.writeTo(bb)")
+bsn_vport = JType("OFBsnVport")\
+        .op(read="OFBsnVportVer$version.READER.readFrom(bb)",
+            write="$name.writeTo(bb)")
 flow_wildcards = JType("int") \
         .op(read='bb.readInt()',
             write='bb.writeInt($name)',
@@ -519,6 +522,7 @@ default_mtype_to_jtype_convert_map = {
         'of_meter_features_t': meter_features,
         'of_bitmap_128_t': port_bitmap,
         'of_checksum_128_t': checksum,
+        'of_bsn_vport_t': bsn_vport,
         }
 
 ## Map that defines exceptions from the standard loxi->java mapping scheme
